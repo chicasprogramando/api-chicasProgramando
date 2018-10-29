@@ -5,8 +5,7 @@ ruby '2.5.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.1'
-# Use PostgreSQL as the database for Active Record
-gem 'pg', '< 1.0'
+
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
@@ -65,3 +64,9 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'activeadmin'
 # Plus integrations with:
 gem 'devise'
+
+group :production do
+  # Use PostgreSQL as the database for Active Record
+  gem 'pg', '< 1.0'
+  gem 'rails_12factor'
+end
