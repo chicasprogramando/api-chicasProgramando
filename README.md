@@ -9,5 +9,5 @@
 * System dependencies
 > bundle install
 
-* Lift server in Rails
+* Run server on Rails in localhost:3000/admin
 > rails server ó rails s
