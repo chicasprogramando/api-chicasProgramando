@@ -11,3 +11,5 @@
 
 * Run server on Rails in localhost:3000/admin
 > rails server ó rails s
+
+test
