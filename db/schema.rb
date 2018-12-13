@@ -56,4 +56,20 @@ ActiveRecord::Schema.define(version: 2018_11_29_133352) do
     t.string "password_digest"
   end
 
+  create_table "projects", force: :cascade do |t|
+    t.string "project_name"
+    t.string "created_by"
+    t.string "skills"
+    t.string "image_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "description"
+    t.string "url"
+    t.boolean "disabled", default: false
+    t.boolean "open", default: false
+    t.integer "user_profile_id"
+    t.index ["user_profile_id"], name: "index_projects_on_user_profile_id"
+  end
+
+  
 end
