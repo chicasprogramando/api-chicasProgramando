@@ -4,7 +4,7 @@ class Api::ProjectsController < ApplicationController
       projects = Project.not_disabled.all
   
       render json: {
-        projects: projects.as_json(only: [:id, :project_name, :created_by, :skills, :open])
+        projects: projects.as_json(only: [:id, :project_name, :user, :technologies, :image_url, :description, :disabled, :open])
       }
     end
   

@@ -6,7 +6,7 @@ describe "Projects API" do
     includes = {except: [:created_at, :updated_at]}
 
     if !full
-      includes[:only] = [:id, :project_name, :created_by, :skills]
+      includes[:only] = [:id, :project_name, :created_by, :technologies]
     end
 
     p.as_json(includes).stringify_keys
