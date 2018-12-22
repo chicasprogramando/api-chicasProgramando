@@ -1,6 +1,6 @@
 class Project < ApplicationRecord
-    belongs_to :user_profile
-    validates :project_name, :created_by, :skills, :image_url, presence: true
+    belongs_to :user
+    validates :project_name, :technologies, :image_url, :description, presence: true
   
     scope :not_disabled, -> { where(disabled: false) }
   
