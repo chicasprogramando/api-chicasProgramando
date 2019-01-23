@@ -4,7 +4,11 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   namespace :api, format: 'json' do
-      resources :users, only: [:index, :show]
+      resources :users, only: [:index, :show] do
+        collection do
+          get :me
+        end
+      end
       resources :projects, only: [:index, :show, :create]
       mount_devise_token_auth_for 'User', at: 'auth'
   end

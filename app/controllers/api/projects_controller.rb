@@ -1,5 +1,7 @@
 class Api::ProjectsController < ApiController
 
+  before_action :authenticate_api_user!
+
     def index
       projects = Project.not_disabled.all
   

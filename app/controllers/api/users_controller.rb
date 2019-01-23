@@ -1,4 +1,6 @@
 class Api::UsersController < ApiController
+
+  before_action :authenticate_api_user!, only: [:me]
 	
 	def index
 		@users = User.all
@@ -13,6 +15,10 @@ class Api::UsersController < ApiController
       format.html
       format.json { render :json => @user }
     end
+  end
+
+  def me
+    render json: current_api_user
   end
 	
 end
