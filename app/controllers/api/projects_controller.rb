@@ -1,4 +1,4 @@
-class Api::ProjectsController < ApplicationController
+class Api::ProjectsController < ApiController
 
     def index
       projects = Project.not_disabled.all
