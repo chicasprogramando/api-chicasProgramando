@@ -3,7 +3,7 @@ class Api::ProjectsController < ApiController
   before_action :authenticate_api_user!
 
     def index
-      projects = Project.not_disabled.all
+      projects = Project.paginate page: params[:page], per_page: params[:per_page]
   
       render json: {
         projects: projects.as_json(only: [:id, :project_name, :user, :technologies, :image_url, :description, :disabled, :open])
