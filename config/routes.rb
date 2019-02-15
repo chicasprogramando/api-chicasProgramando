@@ -11,5 +11,7 @@ Rails.application.routes.draw do
       end
       resources :projects, only: [:index, :show, :create]
       mount_devise_token_auth_for 'User', at: 'auth'
+
+      resources :events, only: [:index, :show]
   end
 end
