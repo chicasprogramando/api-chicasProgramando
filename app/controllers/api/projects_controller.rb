@@ -1,6 +1,6 @@
 class Api::ProjectsController < ApiController
 
-  before_action :authenticate_api_user!
+  before_action :authenticate_api_user!, only: [:show]
 
     def index
       projects = Project.paginate page: params[:page], per_page: params[:per_page]
