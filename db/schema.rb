@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_14_201535) do
+ActiveRecord::Schema.define(version: 2019_04_13_145503) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 2019_02_14_201535) do
     t.integer "user_id"
     t.text "description"
     t.boolean "disabled", default: false
+    t.string "creators"
     t.index ["user_id"], name: "index_projects_on_user_id"
   end
 

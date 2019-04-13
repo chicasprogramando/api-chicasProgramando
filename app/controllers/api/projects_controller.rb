@@ -17,6 +17,26 @@ class Api::ProjectsController < ApiController
         project: project.as_json(except: [:created_at, :updated_at])
       }
     end
+
+    def create
+      project = Project.new(permited_params)
+
+      if project.save
+        render json: project, status: :created 
+      else
+        render json: {
+          errors: project.errors
+        }, status: :unprocessable_entity
+      end
+    end
+
+    private
   
+    def permited_params
+      params.require(:project).permit(:project_name, :technologies, :image_url, :description)
+    end
   end
+
+
+  #{ project: { project_name: "name", techonologies: "Rails", image_url: "", description } }
   
