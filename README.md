@@ -21,6 +21,7 @@
 > 3- bundle install 
 
 * How to fix “Your Ruby version is X.X.X, but your Gemfile specified Y.Y.Y” while server starting
+<br />
 Use rvm to install and use as default the same version the Gemfile specifies.
 > Execute the following in your terminal: <br />
 > rvm install `Y.Y.Y` && rvm use `Y.Y.Y`
