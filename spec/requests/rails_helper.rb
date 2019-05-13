@@ -7,7 +7,6 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
 require 'database_cleaner'
-
 # The following line is provided for convenience purposes. It has the downside
 # of increasing the boot-up time by auto-requiring all files in the support
 # directory. Alternatively, in the individual `*_spec.rb` files, manually
@@ -28,6 +27,7 @@ ActiveSupport::JSON::Encoding.time_precision = 8
 ActiveSupport::JSON::Encoding.use_standard_json_time_format = true
 
 RSpec.configure do |config|
+  config.include FactoryBot::Syntax::Methods
   config.include RequestsHelper::JsonHelpers, type: :request
   config.include RequestsHelper::AuthHelpers, type: :controller
   config.include RequestsHelper::AuthHelpers, type: :request
@@ -47,6 +47,8 @@ RSpec.configure do |config|
     end
   end
 
+  
+
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
   # instead of true.
@@ -58,4 +60,14 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+
+
+  # Shoulda matchers configuration to be able to use it in our test files :)
+  Shoulda::Matchers.configure do |config|
+    config.integrate do |with|
+      with.test_framework :rspec
+      with.library :rails
+    end
+  end
+
 end
