@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_13_145503) do
+ActiveRecord::Schema.define(version: 2019_02_14_201535) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -55,16 +55,7 @@ ActiveRecord::Schema.define(version: 2019_04_13_145503) do
     t.integer "user_id"
     t.text "description"
     t.boolean "disabled", default: false
-    t.string "creators"
     t.index ["user_id"], name: "index_projects_on_user_id"
-  end
-
-  create_table "socials", force: :cascade do |t|
-    t.string "linkedin"
-    t.string "github"
-    t.string "twitter"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -76,10 +67,12 @@ ActiveRecord::Schema.define(version: 2019_04_13_145503) do
     t.string "senority"
     t.string "skills"
     t.text "about_me"
+    t.string "linkedin"
+    t.string "github"
+    t.string "twitter"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "email"
-    t.boolean "disabled", default: false
     t.string "provider", default: "email", null: false
     t.string "uid", default: "", null: false
     t.string "encrypted_password", default: "", null: false
