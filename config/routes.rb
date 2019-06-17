@@ -18,4 +18,5 @@ Rails.application.routes.draw do
   # El endpoint health está fuera de /api 
   # Se encarga de devolvernos el estado de nuestra api (OK/DOWN) y de la db (OK/DOWN)
   resources :health, to: 'health#health'
+  resources :private, to: 'private#private'
 end
