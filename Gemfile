@@ -28,6 +28,9 @@ gem 'redis', '~> 4.0'
 gem 'bcrypt', '~> 3.1.7'
 
 gem 'jwt_sessions', ' ~> 2 '
+gem 'jwt'
+
+gem 'dotenv', '~> 0.11.1'
 
 gem 'rack-cors'
 
