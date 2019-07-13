@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       resources :projects, only: [:index, :show, :create]
       mount_devise_token_auth_for 'User', at: 'auth'
       resources :events, only: [:index, :show]
+      resources :contact, only: [:create]
   end
   
   # El endpoint health está fuera de /api 
