@@ -33,7 +33,7 @@ class Api::UsersController < ApiController
 
   private
   def permited_params
-    params.require(:user).permit(:name, :title, :image, :role_name, :search_project, :senority, :skills, :about_me, :linkedin, :github, :twitter, :email, :password)
+    params.require(:user).permit(:name, :auth_sub)
   end
 
 
