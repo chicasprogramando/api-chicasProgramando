@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_14_201535) do
+ActiveRecord::Schema.define(version: 2019_09_08_141201) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -60,16 +60,7 @@ ActiveRecord::Schema.define(version: 2019_02_14_201535) do
 
   create_table "users", force: :cascade do |t|
     t.string "name"
-    t.string "title"
-    t.string "image"
-    t.string "role_name"
-    t.boolean "search_project"
-    t.string "senority"
-    t.string "skills"
-    t.text "about_me"
-    t.string "linkedin"
-    t.string "github"
-    t.string "twitter"
+    t.string "auth_sub"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "email"
@@ -90,6 +81,8 @@ ActiveRecord::Schema.define(version: 2019_02_14_201535) do
     t.datetime "confirmation_sent_at"
     t.string "unconfirmed_email"
     t.text "tokens"
+    t.boolean "accepted_terms", default: false
+    t.boolean "profile_completed", default: false
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
